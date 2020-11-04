@@ -40,7 +40,7 @@ export default function Form() {
           Clear
         </button>
       </details>
-      <a href="https://www.dropbox.com/s/kqhstal05omzona/OW%20Projekt%20A.xlsx?dl=0">
+      <a href="https://www.mediafire.com/file/9z3gh03uyej2cfh/OW_Projekt_A.xlsx/file">
         Excel-Sheet Download
       </a>
     </>
