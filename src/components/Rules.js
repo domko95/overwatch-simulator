@@ -8,7 +8,7 @@ export default function Rules() {
           <h2>Regeln</h2>
         </summary>
         <ol>
-          <li>Lobby-Code verwenden</li>
+          <li>Lobby-Code(M6W17) verwenden</li>
           <li>Ergebnis nach dem Match in das Ergebnis-Feld eintragen</li>
           <li>Matches können ausgespielt oder simuliert werden</li>
           <li>Bots in der angegebenen Schwierigkeit verwenden</li>
