@@ -46,6 +46,7 @@ function App() {
             </Route>
           </Switch>
         </main>
+        <footer>Version Alpha 0.0.1</footer>
       </Router>
     </>
   );
