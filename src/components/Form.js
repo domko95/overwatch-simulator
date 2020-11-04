@@ -1,48 +1,56 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import styled from 'styled-components';
+import { Link } from 'react-router-dom';
+import { getTeams } from '../api/api';
+
+const Container = styled.div`
+  display: flex;
+  flex-direction: column;
+  list-style-type: none;
+  align-items: center;
+  padding: 0;
+`;
+
+const Download = styled.a`
+  border-radius: 20px;
+  margin: 20px 0;
+  padding: 1rem;
+  background: black;
+  color: orange;
+  box-shadow: 0 10px 20px orange;
+  text-decoration: none;
+`;
+
+const TeamItem = styled.p`
+  border-radius: 10px;
+  margin-top: 10px;
+  padding: 0.5rem;
+  background: black;
+  color: orange;
+  box-shadow: 0 10px 20px orange;
+  text-decoration: none;
+`;
 
 export default function Form() {
-  const [region, setRegion] = useState('');
-  const handleClick = (value) => {
-    setRegion(value);
-    localStorage.setItem('region', region);
-  };
+  const [teams, setTeams] = useState([]);
+  useEffect(async () => {
+    const newTeams = await getTeams();
+    setTeams(newTeams);
+  }, []);
+
   return (
     <>
-      <details>
-        <summary>
-          <h2>Anmeldung</h2>
-        </summary>
-        <button type="button" value="bfc" onClick={() => handleClick('bfc')}>
-          Baden-Württermberg
-        </button>
-        <button type="button" value="apex" onClick={() => handleClick('apex')}>
-          Bayern
-        </button>
-        <button type="button" value="ea" onClick={() => handleClick('ea')}>
-          Brandenburg, Berlin, Sachsen, Sachsen-Anhalt, Thüringen
-        </button>
-        <button type="button" value="nwn" onClick={() => handleClick('nwn')}>
-          Bremen, Niedersachsen
-        </button>
-        <button type="button" value="nl" onClick={() => handleClick('nl')}>
-          Hamburg, Mecklemburg-Vorpommern, Schleswig-Holstein
-        </button>
-        <button type="button" value="hsr" onClick={() => handleClick('hsr')}>
-          Hessen, Rheinland-Pfalz, Saarland
-        </button>
-        <button type="button" value="nrw" onClick={() => handleClick('nrw')}>
-          Nordrhein-Westfalen
-        </button>
-        <button type="button" value="alps" onClick={() => handleClick('alps')}>
-          Österreich, Schweiz
-        </button>
-        <button type="button" onClick={() => handleClick('')}>
-          Clear
-        </button>
-      </details>
-      <a href="https://www.mediafire.com/file/9z3gh03uyej2cfh/OW_Projekt_A.xlsx/file">
-        Excel-Sheet Download
-      </a>
+      <h2>Anmeldung</h2>
+      <Container>
+        {teams?.map((team) => (
+          <Link key={team.id} to={`/${team.id}`}>
+            <TeamItem>{team.regions}</TeamItem>
+          </Link>
+        ))}
+        <Download href="https://www.mediafire.com/file/9z3gh03uyej2cfh/OW_Projekt_A.xlsx/file">
+          Download Excel-Sheet
+        </Download>
+      </Container>
     </>
   );
 }

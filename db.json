@@ -1,0 +1,60 @@
+{
+  "teams": [
+    {
+      "id": 1,
+      "title": "BFC",
+      "regions": "Baden-Württemberg",
+      "org": "Black Forest Crusaders",
+      "team1": "Black Forest Crusaders"
+    },
+    {
+      "id": 2,
+      "title": "APEX",
+      "regions": "Bayern",
+      "org": "Bayern APEX",
+      "team1": "Bayern APEX"
+    },
+    {
+      "id": 3,
+      "title": "EA",
+      "regions": "Brandenburg, Berlin, Sachsen, Sachsen-Anhalt, Thüringen",
+      "org": "Eastern Awakening",
+      "team1": "Eastern Awakening"
+    },
+    {
+      "id": 4,
+      "title": "NWN",
+      "regions": "Bremen, Niedersachsen",
+      "org": "North-West Narwhals",
+      "team1": "North-West Narwhals"
+    },
+    {
+      "id": 5,
+      "title": "NL",
+      "regions": "Hamburg, Mecklemburg-Vorpommern, Schleswig-Holstein",
+      "org": "Northern Lights",
+      "team1": "Northern Lights"
+    },
+    {
+      "id": 6,
+      "title": "HSR",
+      "regions": "Hessen, Rheinland-Pfalz, Saarland",
+      "org": "HSR Panthera",
+      "team1": "HSR Panthera"
+    },
+    {
+      "id": 7,
+      "title": "NRW",
+      "regions": "Nordrhein-Westfalen",
+      "org": "NRW Invictus",
+      "team1": "NRW Invictus"
+    },
+    {
+      "id": 8,
+      "title": "ALSP",
+      "regions": "Österreich, Schweiz",
+      "org": "Alps Nemesis",
+      "team1": "Alps Nemesis"
+    }
+  ]
+}
