@@ -5,6 +5,7 @@ import Rules from './components/Rules';
 import Form from './components/Form';
 import Role from './components/Role';
 import Player from './components/Player';
+import Match from './components/Match';
 
 const Container = styled.div`
   display: flex;
@@ -83,6 +84,9 @@ function App() {
             <Link to="/registration">
               <ListItem>Anmeldung</ListItem>
             </Link>
+            <Link to="/match">
+              <ListItem>Match</ListItem>
+            </Link>
           </Nav>
           <BackgroundContainer>
             <Main>
@@ -96,6 +100,9 @@ function App() {
                 </Route>
                 <Route path="/registration">
                   <Form />
+                </Route>
+                <Route path="/match">
+                  <Match />
                 </Route>
                 <Route path="/:teamId">
                   <Role />
@@ -111,7 +118,7 @@ function App() {
               </Switch>
             </Main>
           </BackgroundContainer>
-          <Footer>Version Alpha 0.2.1</Footer>
+          <Footer>Version Alpha 0.2.2</Footer>
         </Container>
       </Router>
     </>

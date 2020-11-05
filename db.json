@@ -94,5 +94,121 @@
       "abbr": "FS",
       "heroes": ["Ana", "Zenyatta"]
     }
+  ],
+  "maps": [
+    {
+      "id": 1,
+      "title": "Busan",
+      "type": "Control",
+      "location": "South Korea"
+    },
+    {
+      "id": 2,
+      "title": "Ilios",
+      "type": "Control",
+      "location": "Greece"
+    },
+    {
+      "id": 3,
+      "title": "Lijiang Tower",
+      "type": "Control",
+      "location": "China"
+    },
+    {
+      "id": 4,
+      "title": "Nepal",
+      "type": "Control",
+      "location": "Nepal"
+    },
+    {
+      "id": 5,
+      "title": "Oasis",
+      "type": "Control",
+      "location": "Iraq"
+    },
+    {
+      "id": 6,
+      "title": "Blizzard World",
+      "type": "Hybrid",
+      "location": "United States of America"
+    },
+    {
+      "id": 7,
+      "title": "Eichenwalde",
+      "type": "Hybrid",
+      "location": "Germany"
+    },
+    {
+      "id": 8,
+      "title": "Hollywood",
+      "type": "Hybrid",
+      "location": "United States of America"
+    },
+    {
+      "id": 9,
+      "title": "King's Row",
+      "type": "Hybrid",
+      "location": "Great Britain"
+    },
+    {
+      "id": 10,
+      "title": "Numbani",
+      "type": "Hybrid",
+      "location": "Nigeria"
+    },
+    {
+      "id": 11,
+      "title": "Hanamura",
+      "type": "Assault",
+      "location": "Japan"
+    },
+    {
+      "id": 12,
+      "title": "Temple of Anubis",
+      "type": "Assault",
+      "location": "Egypt"
+    },
+    {
+      "id": 13,
+      "title": "Volskaya Industries",
+      "type": "Assault",
+      "location": "Russia"
+    },
+    {
+      "id": 14,
+      "title": "Dorado",
+      "type": "Escort",
+      "location": "Mexico"
+    },
+    {
+      "id": 15,
+      "title": "Havana",
+      "type": "Escort",
+      "location": "Cuba"
+    },
+    {
+      "id": 16,
+      "title": "Junkertown",
+      "type": "Escort",
+      "location": "Australia"
+    },
+    {
+      "id": 17,
+      "title": "Rialto",
+      "type": "Escort",
+      "location": "Italy"
+    },
+    {
+      "id": 18,
+      "title": "Route 66",
+      "type": "Escort",
+      "location": "United States of America"
+    },
+    {
+      "id": 19,
+      "title": "Watchpoint: Gibraltar",
+      "type": "Escort",
+      "location": "Gibraltar"
+    }
   ]
 }
