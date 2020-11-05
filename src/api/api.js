@@ -15,3 +15,9 @@ export async function getRoles() {
   const roles = await response.json();
   return roles;
 }
+
+export async function getRoleById(id) {
+  const response = await fetch(`http://localhost:5000/roles/${id}`);
+  const role = await response.json();
+  return role;
+}
