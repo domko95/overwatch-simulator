@@ -56,5 +56,43 @@
       "org": "Alps Nemesis",
       "team1": "Alps Nemesis"
     }
+  ],
+  "roles": [
+    {
+      "id": 1,
+      "title": "MainTank",
+      "abbr": "MT",
+      "heroes": ["Roadhog"]
+    },
+    {
+      "id": 2,
+      "title": "OffTank",
+      "abbr": "OT",
+      "heroes": ["Zarya"]
+    },
+    {
+      "id": 3,
+      "title": "HitscanDPS",
+      "abbr": "HS",
+      "heroes": ["McCree", "Soldier: 76", "Bastion"]
+    },
+    {
+      "id": 4,
+      "title": "FlexDPS",
+      "abbr": "FD",
+      "heroes": ["Reaper", "Mei", "Sombra", "Torbjörn"]
+    },
+    {
+      "id": 5,
+      "title": "MainSupport",
+      "abbr": "MS",
+      "heroes": ["Lucio"]
+    },
+    {
+      "id": 6,
+      "title": "FlexSupport",
+      "abbr": "FS",
+      "heroes": ["Ana", "Zenyatta"]
+    }
   ]
 }

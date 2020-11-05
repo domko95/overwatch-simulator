@@ -42,6 +42,7 @@ export default function Form() {
     <>
       <h2>Anmeldung</h2>
       <Container>
+        <h3>Wähle deine Region:</h3>
         {teams?.map((team) => (
           <Link key={team.id} to={`/${team.id}`}>
             <TeamItem>{team.regions}</TeamItem>

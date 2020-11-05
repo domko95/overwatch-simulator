@@ -3,6 +3,8 @@ import styled from 'styled-components';
 import GlobalStyle from './GlobalStyle';
 import Rules from './components/Rules';
 import Form from './components/Form';
+import Role from './components/Role';
+import Player from './components/Player';
 
 const Container = styled.div`
   display: flex;
@@ -86,11 +88,17 @@ function App() {
             <Main>
               <h1>Domko95s Overwatch Simulator</h1>
               <Switch>
+                <Route path="/player/:name">
+                  <Player />
+                </Route>
                 <Route path="/rules">
                   <Rules />
                 </Route>
                 <Route path="/registration">
                   <Form />
+                </Route>
+                <Route path="/:teamId">
+                  <Role />
                 </Route>
                 <Route path="/">
                   <CenterImage>
@@ -103,7 +111,7 @@ function App() {
               </Switch>
             </Main>
           </BackgroundContainer>
-          <Footer>Version Alpha 0.1.0</Footer>
+          <Footer>Version Alpha 0.2.0</Footer>
         </Container>
       </Router>
     </>
