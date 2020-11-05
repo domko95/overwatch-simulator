@@ -56,7 +56,7 @@ export default function Match() {
 
   const [map, setMap] = useState([]);
   useEffect(async () => {
-    const mapId = getRandomInt(3);
+    const mapId = getRandomInt(5);
     const newMap = await getMapById(mapId);
     setMap(newMap);
   }, []);
