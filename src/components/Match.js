@@ -2,7 +2,9 @@ import React, { useEffect, useState } from 'react';
 import { Link, Route, Switch, useRouteMatch } from 'react-router-dom';
 
 import styled from 'styled-components';
-import { getRoleById, getTeamById, getTeams } from '../api/api';
+import { getMapById, getRoleById, getTeamById, getTeams } from '../api/api';
+import getRandomInt from '../utils/random';
+import Mapresult from './Mapresult';
 
 const Container = styled.div`
   display: flex;
@@ -50,7 +52,14 @@ export default function Match() {
   useEffect(async () => {
     const newTeams = await getTeams();
     setTeams(newTeams);
-  });
+  }, []);
+
+  const [map, setMap] = useState([]);
+  useEffect(async () => {
+    const mapId = getRandomInt(3);
+    const newMap = await getMapById(mapId);
+    setMap(newMap);
+  }, []);
 
   const match = useRouteMatch();
 
@@ -71,7 +80,11 @@ export default function Match() {
         </tr>
       </Table>
       <Switch>
-        <Route path={`${match.path}/:teamId`}>Hier kommt Map 1</Route>
+        <Route path={`${match.path}/:teamId`}>
+          <div>Hier kommt Map 1</div>
+          <h3>{map.title}</h3>
+          <Mapresult map="map1" />
+        </Route>
         <Route path={match.path}>
           <p>Wähle deinen Gegner:</p>
           {teams?.map((teamsItem) => (
