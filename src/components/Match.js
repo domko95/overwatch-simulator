@@ -65,8 +65,6 @@ export default function Match() {
 
   const match = useRouteMatch();
 
-  console.log(mapsPlayed);
-
   function Maps() {
     if (mapsPlayed.includes('map1')) {
       return (
