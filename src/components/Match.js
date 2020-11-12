@@ -4,7 +4,8 @@ import { Link, Route, Switch, useRouteMatch } from 'react-router-dom';
 import styled from 'styled-components';
 import { getMapById, getRoleById, getTeamById, getTeams } from '../api/api';
 import getRandomInt from '../utils/random';
-import Mapresult from './Mapresult';
+import Map from './Map';
+import Result from './Result';
 
 const Container = styled.div`
   display: flex;
@@ -33,6 +34,7 @@ const TeamItem = styled.p`
 
 export default function Match() {
   const name = localStorage.getItem('name');
+  const [mapsPlayed, setMapsPlayed] = useState([]);
 
   const [role, setRole] = useState([]);
   const roleId = localStorage.getItem('role');
@@ -63,6 +65,46 @@ export default function Match() {
 
   const match = useRouteMatch();
 
+  console.log(mapsPlayed);
+
+  function Maps() {
+    if (mapsPlayed.includes('map1')) {
+      return (
+        <>
+          <Result map="map1" />
+          <Map
+            map={map}
+            mapsPlayed={mapsPlayed}
+            mapValue="map2"
+            setMapsPlayed={setMapsPlayed}
+          />
+        </>
+      );
+    }
+    if (mapsPlayed.includes('map2')) {
+      return (
+        <>
+          <Result map="map1" />
+          <Result map="map2" />
+          <Map
+            map={map}
+            mapsPlayed={mapsPlayed}
+            mapValue="map3"
+            setMapsPlayed={setMapsPlayed}
+          />
+        </>
+      );
+    }
+    return (
+      <Map
+        map={map}
+        mapsPlayed={mapsPlayed}
+        mapValue="map1"
+        setMapsPlayed={setMapsPlayed}
+      />
+    );
+  }
+
   return (
     <Container>
       <Table>
@@ -81,9 +123,7 @@ export default function Match() {
       </Table>
       <Switch>
         <Route path={`${match.path}/:teamId`}>
-          <div>Hier kommt Map 1</div>
-          <h3>{map.title}</h3>
-          <Mapresult map="map1" />
+          <Maps />
         </Route>
         <Route path={match.path}>
           <p>Wähle deinen Gegner:</p>

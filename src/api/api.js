@@ -39,3 +39,8 @@ export async function getMapById(id) {
   const map = await response.json();
   return map;
 }
+
+export function getMapScore(map) {
+  const score = localStorage.getItem(map);
+  return score;
+}

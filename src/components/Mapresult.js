@@ -1,7 +1,7 @@
 import { PropTypes } from 'prop-types';
 import React, { useState } from 'react';
 
-export default function Mapresult({ map }) {
+export default function Mapresult({ map, setMapsPlayed, mapsPlayed }) {
   const [scoreBlue, setScoreBlue] = useState('');
   const [scoreRed, setScoreRed] = useState('');
 
@@ -16,6 +16,7 @@ export default function Mapresult({ map }) {
   const handleSubmit = (event) => {
     event.preventDefault();
     localStorage.setItem(map, [scoreBlue, scoreRed]);
+    setMapsPlayed([mapsPlayed, map]);
   };
 
   const winner = () => {
@@ -52,4 +53,6 @@ export default function Mapresult({ map }) {
 
 Mapresult.propTypes = {
   map: PropTypes.string.isRequired,
+  mapsPlayed: PropTypes.string.isRequired,
+  setMapsPlayed: PropTypes.string.isRequired,
 };
