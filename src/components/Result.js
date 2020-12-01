@@ -7,6 +7,7 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  text-align: center;
 `;
 
 export default function Result({ map }) {
@@ -14,6 +15,12 @@ export default function Result({ map }) {
   const scoresMap = scoreMap.split(',');
   return (
     <Container>
+      <div>
+        <p>
+          <strong>Map-Winner:</strong>
+        </p>
+        <strong>{scoresMap[2]}</strong>
+      </div>
       <p>Score:</p>
       <div>
         <span>{scoresMap[0]}</span>

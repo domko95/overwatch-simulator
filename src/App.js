@@ -40,6 +40,7 @@ const BackgroundContainer = styled.main`
   height: 100%;
   width: 100vw;
   background: orange;
+  overflow: auto;
 `;
 
 const Footer = styled.footer`
@@ -118,7 +119,7 @@ function App() {
               </Switch>
             </Main>
           </BackgroundContainer>
-          <Footer>Version Alpha 0.2.7</Footer>
+          <Footer>Version Alpha 0.2.8</Footer>
         </Container>
       </Router>
     </>

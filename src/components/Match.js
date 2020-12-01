@@ -93,6 +93,21 @@ export default function Match() {
         </>
       );
     }
+    if (mapsPlayed.includes('map3')) {
+      return (
+        <>
+          <Result map="map1" />
+          <Result map="map2" />
+          <Result map="map3" />
+          <Map
+            map={map}
+            mapsPlayed={mapsPlayed}
+            mapValue="map4"
+            setMapsPlayed={setMapsPlayed}
+          />
+        </>
+      );
+    }
     return (
       <Map
         map={map}

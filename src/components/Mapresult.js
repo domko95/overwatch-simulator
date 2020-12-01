@@ -1,9 +1,42 @@
 import { PropTypes } from 'prop-types';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import styled from 'styled-components/macro';
+
+const InputBlue = styled.input`
+  background: #0066ff;
+  ::placeholder {
+    color: #222;
+  }
+`;
+
+const InputRed = styled.input`
+  background: #ff2222;
+  ::placeholder {
+    color: #222;
+  }
+`;
 
 export default function Mapresult({ map, setMapsPlayed, mapsPlayed }) {
   const [scoreBlue, setScoreBlue] = useState('');
   const [scoreRed, setScoreRed] = useState('');
+  const [mapWinner, setMapWinner] = useState('');
+
+  useEffect(() => {
+    localStorage.setItem(map, [scoreBlue, scoreRed, mapWinner]);
+  }, [map, scoreBlue, scoreRed, mapWinner]);
+
+  useEffect(() => {
+    if (scoreBlue > scoreRed) {
+      setMapWinner('blue');
+      return <h3>Team Blue wins the Map</h3>;
+    }
+    if (scoreBlue === scoreRed) {
+      setMapWinner('draw');
+      return <h3>Draw</h3>;
+    }
+    setMapWinner('red');
+    return <h3>Team Red wins the Map</h3>;
+  }, [scoreBlue, scoreRed]);
 
   const handleBlueChange = (event) => {
     setScoreBlue(event.target.value);
@@ -15,38 +48,42 @@ export default function Mapresult({ map, setMapsPlayed, mapsPlayed }) {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    localStorage.setItem(map, [scoreBlue, scoreRed]);
-    setMapsPlayed([mapsPlayed, map]);
-  };
-
-  const winner = () => {
     if (scoreBlue > scoreRed) {
-      return <h3>Team Blue wins the Map</h3>;
+      setMapWinner('blue');
+    } else if (scoreBlue === scoreRed) {
+      setMapWinner('draw');
+    } else {
+      setMapWinner('red');
     }
-    if (scoreBlue === scoreRed) {
-      return <h3>Draw</h3>;
-    }
-    return <h3>Team Red wins the Map</h3>;
+    setMapsPlayed([mapsPlayed, map]);
   };
 
   return (
     <>
       <form onSubmit={handleSubmit}>
-        <input
+        <InputBlue
           type="number"
           min="0"
           value={scoreBlue}
           onChange={handleBlueChange}
+          placeholder="Score blue Team"
         />
-        <input
+        <InputRed
           type="number"
           min="0"
           value={scoreRed}
           onChange={handleRedChange}
+          placeholder="Score red Team"
         />
         <button type="submit">Submit</button>
       </form>
-      {winner()}
+      {mapWinner === 'blue' ? (
+        <h3>Blue wins</h3>
+      ) : mapWinner === 'draw' ? (
+        <h3>Draw</h3>
+      ) : (
+        <h3>Red wins</h3>
+      )}
     </>
   );
 }
