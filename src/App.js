@@ -119,7 +119,7 @@ function App() {
               </Switch>
             </Main>
           </BackgroundContainer>
-          <Footer>Version Alpha 0.2.8</Footer>
+          <Footer>Version Alpha 0.2.9</Footer>
         </Container>
       </Router>
     </>
