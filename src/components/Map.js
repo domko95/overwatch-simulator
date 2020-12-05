@@ -33,8 +33,8 @@ export default function Map({ map, mapsPlayed, mapValue, setMapsPlayed }) {
 }
 
 Map.propTypes = {
-  map: PropTypes.string.isRequired,
-  mapsPlayed: PropTypes.string.isRequired,
-  setMapsPlayed: PropTypes.string.isRequired,
+  map: PropTypes.object.isRequired,
+  mapsPlayed: PropTypes.array.isRequired,
+  setMapsPlayed: PropTypes.any.isRequired,
   mapValue: PropTypes.string.isRequired,
 };

@@ -22,20 +22,14 @@ export async function getRoleById(id) {
   return role;
 }
 
-export async function getMaps() {
-  const response = await fetch('http://localhost:5050/maps');
+export async function getMaps(type) {
+  const response = await fetch(`http://localhost:5050/${type}`);
   const maps = await response.json();
   return maps;
 }
 
-export async function getMapsByType(type) {
-  const response = await fetch(`http://localhost:5050/maps?type=${type}`);
-  const maps = await response.json();
-  return maps;
-}
-
-export async function getMapById(id) {
-  const response = await fetch(`http://localhost:5050/maps/${id}`);
+export async function getMapById({ type, mapId }) {
+  const response = await fetch(`http://localhost:5050/${type}/${mapId}`);
   const map = await response.json();
   return map;
 }

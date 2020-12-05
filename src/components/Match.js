@@ -35,6 +35,10 @@ const TeamItem = styled.p`
 export default function Match() {
   const name = localStorage.getItem('name');
   const [mapsPlayed, setMapsPlayed] = useState([]);
+  const [mapsBlue, setMapsBlue] = useState('');
+  const [mapsRed, setMapsRed] = useState('');
+  const [matchStatus, setMatchStatus] = useState('inProgress');
+  const [matchWinner, setMatchWinner] = useState('');
 
   const [role, setRole] = useState([]);
   const roleId = localStorage.getItem('role');
@@ -58,10 +62,40 @@ export default function Match() {
 
   const [map, setMap] = useState([]);
   useEffect(async () => {
-    const mapId = getRandomInt(5);
-    const newMap = await getMapById(mapId);
-    setMap(newMap);
-  }, []);
+    setMapsBlue(localStorage.getItem('mapsBlue'));
+    setMapsRed(localStorage.getItem('mapsRed'));
+    if (mapsBlue === '3' || mapsRed === '3') {
+      setMatchStatus('finished');
+    }
+    if (matchStatus === 'finished') {
+      if (mapsBlue === '3') {
+        setMatchWinner('blue');
+      } else {
+        setMatchWinner('red');
+      }
+    }
+    if (mapsPlayed.includes('map1') && matchStatus !== 'finished') {
+      const mapId = getRandomInt(5);
+      const newMap = await getMapById({ type: 'hybrid', mapId });
+      setMap(newMap);
+    } else if (mapsPlayed.includes('map2') && matchStatus !== 'finished') {
+      const mapId = getRandomInt(3);
+      const newMap = await getMapById({ type: 'assault', mapId });
+      setMap(newMap);
+    } else if (mapsPlayed.includes('map3') && matchStatus !== 'finished') {
+      const mapId = getRandomInt(6);
+      const newMap = await getMapById({ type: 'escort', mapId });
+      setMap(newMap);
+    } else {
+      const mapId = getRandomInt(5);
+      const newMap = await getMapById({ type: 'control', mapId });
+      setMap(newMap);
+      localStorage.setItem('mapsBlue', 0);
+      localStorage.setItem('mapsRed', 0);
+      setMapsBlue(localStorage.getItem('mapsBlue'));
+      setMapsRed(localStorage.getItem('mapsRed'));
+    }
+  }, [mapsPlayed]);
 
   const match = useRouteMatch();
 
@@ -79,7 +113,7 @@ export default function Match() {
         </>
       );
     }
-    if (mapsPlayed.includes('map2')) {
+    if (mapsPlayed.includes('map2') && matchStatus !== 'finished') {
       return (
         <>
           <Result map="map1" />
@@ -93,7 +127,7 @@ export default function Match() {
         </>
       );
     }
-    if (mapsPlayed.includes('map3')) {
+    if (mapsPlayed.includes('map3') && matchStatus !== 'finished') {
       return (
         <>
           <Result map="map1" />
@@ -106,6 +140,14 @@ export default function Match() {
             setMapsPlayed={setMapsPlayed}
           />
         </>
+      );
+    }
+    if (matchStatus === 'finished') {
+      return (
+        <p>
+          Match Winner is:
+          {matchWinner}
+        </p>
       );
     }
     return (

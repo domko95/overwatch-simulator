@@ -95,7 +95,7 @@
       "heroes": ["Ana", "Zenyatta"]
     }
   ],
-  "maps": [
+  "control": [
     {
       "id": 1,
       "title": "Busan",
@@ -125,87 +125,93 @@
       "title": "Oasis",
       "type": "Control",
       "location": "Iraq"
-    },
+    }
+  ],
+  "hybrid": [
     {
-      "id": 6,
+      "id": 1,
       "title": "Blizzard World",
       "type": "Hybrid",
       "location": "United States of America"
     },
     {
-      "id": 7,
+      "id": 2,
       "title": "Eichenwalde",
       "type": "Hybrid",
       "location": "Germany"
     },
     {
-      "id": 8,
+      "id": 3,
       "title": "Hollywood",
       "type": "Hybrid",
       "location": "United States of America"
     },
     {
-      "id": 9,
+      "id": 4,
       "title": "King's Row",
       "type": "Hybrid",
       "location": "Great Britain"
     },
     {
-      "id": 10,
+      "id": 5,
       "title": "Numbani",
       "type": "Hybrid",
       "location": "Nigeria"
-    },
+    }
+  ],
+  "assault": [
     {
-      "id": 11,
+      "id": 1,
       "title": "Hanamura",
       "type": "Assault",
       "location": "Japan"
     },
     {
-      "id": 12,
+      "id": 2,
       "title": "Temple of Anubis",
       "type": "Assault",
       "location": "Egypt"
     },
     {
-      "id": 13,
+      "id": 3,
       "title": "Volskaya Industries",
       "type": "Assault",
       "location": "Russia"
-    },
+    }
+  ],
+  "escort": [
     {
-      "id": 14,
+      "id": 1,
       "title": "Dorado",
       "type": "Escort",
       "location": "Mexico"
     },
     {
-      "id": 15,
+      "id": 2,
       "title": "Havana",
       "type": "Escort",
       "location": "Cuba"
     },
     {
-      "id": 16,
+      "id": 3,
       "title": "Junkertown",
       "type": "Escort",
       "location": "Australia"
     },
     {
-      "id": 17,
+      "id": 4,
       "title": "Rialto",
       "type": "Escort",
       "location": "Italy"
     },
     {
-      "id": 18,
+      "id": 5,
       "title": "Route 66",
       "type": "Escort",
       "location": "United States of America"
     },
     {
-      "id": 19,
+      "id": 6,
       "title": "Watchpoint: Gibraltar",
       "type": "Escort",
       "location": "Gibraltar"

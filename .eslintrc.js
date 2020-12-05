@@ -18,6 +18,7 @@ module.exports = {
     'react/jsx-filename-extension': 'off',
     'react/jsx-props-no-spreading': 'off',
     'jsx-a11y/label-has-associated-control': 'off',
+    'react/forbid-prop-types': 'off',
     'no-nested-ternary': 'off',
   },
 };

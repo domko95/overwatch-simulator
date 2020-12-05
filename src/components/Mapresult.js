@@ -20,6 +20,8 @@ export default function Mapresult({ map, setMapsPlayed, mapsPlayed }) {
   const [scoreBlue, setScoreBlue] = useState('');
   const [scoreRed, setScoreRed] = useState('');
   const [mapWinner, setMapWinner] = useState('');
+  const mapsBlue = parseFloat(localStorage.getItem('mapsBlue'));
+  const mapsRed = parseFloat(localStorage.getItem('mapsRed'));
 
   useEffect(() => {
     localStorage.setItem(map, [scoreBlue, scoreRed, mapWinner]);
@@ -48,6 +50,7 @@ export default function Mapresult({ map, setMapsPlayed, mapsPlayed }) {
 
   const handleSubmit = (event) => {
     event.preventDefault();
+    setMapsPlayed([mapsPlayed, map]);
     if (scoreBlue > scoreRed) {
       setMapWinner('blue');
     } else if (scoreBlue === scoreRed) {
@@ -55,7 +58,11 @@ export default function Mapresult({ map, setMapsPlayed, mapsPlayed }) {
     } else {
       setMapWinner('red');
     }
-    setMapsPlayed([mapsPlayed, map]);
+    if (mapWinner === 'blue') {
+      localStorage.setItem('mapsBlue', mapsBlue + 1);
+    } else if (mapWinner === 'red') {
+      localStorage.setItem('mapsRed', mapsRed + 1);
+    }
   };
 
   return (
@@ -89,7 +96,7 @@ export default function Mapresult({ map, setMapsPlayed, mapsPlayed }) {
 }
 
 Mapresult.propTypes = {
-  map: PropTypes.string.isRequired,
-  mapsPlayed: PropTypes.string.isRequired,
-  setMapsPlayed: PropTypes.string.isRequired,
+  map: PropTypes.any.isRequired,
+  mapsPlayed: PropTypes.any.isRequired,
+  setMapsPlayed: PropTypes.any.isRequired,
 };
